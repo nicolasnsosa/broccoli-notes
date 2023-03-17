@@ -348,3 +348,35 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Visual Studio cache files
+*.vc.db
+
+# ReSharper and Rider files
+*.[Rr]e[Ss]harper.user
+*.dotSettings.user
+/.idea*/
+.idea*/
+
+# DocProject build output
+docproject/src/Help/*.HxT
+docproject/src/Help/*.HxC
+docproject/src/Help/*.hhc
+docproject/src/Help/*.hhk
+docproject/src/Help/*.hhp
+docproject/src/Help/Html2/*.doc
+docproject/src/Help/Html2/*.zip
+docproject/src/Help/locale/*.wdl
+docproject/src/Help/locale/*.ilk
+docproject/src/Help/locale/*.obj
+docproject/src/Help/locale/*.exe
+
+# Executables and DLLs
+*.exe
+*.dll
+
+# NuGet packages directory
+packages/
+
+# User-specific Rider settings
+*.sln.iml

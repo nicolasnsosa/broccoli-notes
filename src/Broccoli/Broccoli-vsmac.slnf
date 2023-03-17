@@ -1,0 +1,16 @@
+{
+  "solution": {
+    "path": "Broccoli.sln",
+    "projects": [
+		"Broccoli\\Broccoli.csproj",
+
+		"Broccoli.Mobile\\Broccoli.Mobile.csproj",
+
+		"Broccoli.Wasm\\Broccoli.Wasm.csproj",
+
+		"Broccoli.Skia.Gtk\\Broccoli.Skia.Gtk.csproj",
+
+		"Broccoli.Skia.Gtk\\Broccoli.Skia.Gtk.csproj",
+    ]
+  }
+}
