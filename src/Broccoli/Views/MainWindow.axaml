@@ -1,0 +1,93 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Broccoli.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="Broccoli.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Broccoli">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- Menu -->
+        <Menu Grid.Row="0" Grid.ColumnSpan="3">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New"/>
+                <MenuItem Header="_Open"/>
+                <MenuItem Header="_Save"/>
+                <Separator/>
+                <MenuItem Header="E_xit"/>
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Undo"/>
+                <MenuItem Header="_Redo"/>
+                <Separator/>
+                <MenuItem Header="_Cut"/>
+                <MenuItem Header="_Copy"/>
+                <MenuItem Header="_Paste"/>
+                <Separator/>
+                <MenuItem Header="_Find"/>
+                <MenuItem Header="_Replace"/>
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="_Zoom In"/>
+                <MenuItem Header="_Zoom Out"/>
+                <MenuItem Header="_Reset Zoom"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About"/>
+            </MenuItem>
+        </Menu>
+        
+        <!-- Toolbar -->
+        <Border Grid.Row="1" Grid.ColumnSpan="3" Padding="5" Background="LightGray">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Button 1" Margin="0,0,5,0"/>
+                <Button Content="Button 2" Margin="0,0,5,0"/>
+                <Button Content="Button 3" Margin="0,0,5,0"/>
+            </StackPanel>
+        </Border>
+        
+        <!-- Left Panel -->
+        <Border Grid.Row="2" Grid.Column="0" Padding="10" Background="LightGray">
+            <TreeView>
+                <TreeViewItem Header="Root">
+                    <TreeViewItem Header="Child 1">
+                        <TreeViewItem Header="Grandchild 1"/>
+                        <TreeViewItem Header="Grandchild 2"/>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Child 2">
+                        <TreeViewItem Header="Grandchild 3"/>
+                        <TreeViewItem Header="Grandchild 4"/>
+                    </TreeViewItem>
+                </TreeViewItem>
+            </TreeView>
+        </Border>
+
+        <!-- Separator -->
+        <GridSplitter Grid.Row="2" Grid.Column="1" Width="5" Background="Gray" />
+
+        <!-- Right Panel -->
+        <Border Grid.Row="2" Grid.Column="2" Padding="10" Background="LightBlue">
+            <ScrollViewer>
+                <StackPanel>
+                    <TextBlock Text="Text Block 1" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="Text Block 2" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="Text Block 3" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="Text Block 4" FontWeight="Bold" Margin="0,0,0,10"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Window>
