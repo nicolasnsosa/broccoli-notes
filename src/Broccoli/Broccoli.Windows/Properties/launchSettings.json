@@ -1,7 +1,0 @@
-{
-  "profiles": {
-    "Broccoli.Windows": {
-      "commandName": "MsixPackage"
-    }
-  }
-}
