@@ -1,4 +1,6 @@
-﻿namespace Broccoli.ViewModels;
+﻿using Broccoli.ViewModels.Base;
+
+namespace Broccoli.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {

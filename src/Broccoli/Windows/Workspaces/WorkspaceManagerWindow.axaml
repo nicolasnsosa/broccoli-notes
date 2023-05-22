@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:Broccoli.ViewModels.Workspaces"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Broccoli.Windows.Workspaces.WorkspaceManagerWindow"
+        x:DataType="vm:WorkspaceManagerViewModel"
+        Title="WorkspaceManagerWindow">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ProgressBar Grid.RowSpan="2"
+                     x:Name="LoadingIndicator"
+                     IsIndeterminate="{Binding LoadingState}"
+                     Width="50" Height="50"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     IsVisible="{Binding LoadingState}" />
+
+        <Grid Grid.Row="0" Margin="5" IsVisible="{Binding !LoadingState}">
+            <Button Content="Crear Workspace" Command="{Binding OnCreateWorkspace}" HorizontalAlignment="Left" />
+        </Grid>
+
+        <ListBox Grid.Row="1" Items="{Binding Workspaces}" Margin="5" IsVisible="{Binding !LoadingState}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" Margin="0,0,10,0" />
+
+                        <Button Content="Editar"
+                                Command="{Binding $parent[ItemsControl].DataContext.OnEditWorkspace}"
+                                CommandParameter="{Binding Id}" Margin="0,0,5,0" />
+                        <Button Content="Eliminar"
+                                Command="{Binding $parent[ItemsControl].DataContext.OnDeleteWorkspace}"
+                                CommandParameter="{Binding Id}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>

@@ -1,6 +1,6 @@
 ﻿using Avalonia;
-using Avalonia.ReactiveUI;
 using System;
+using Avalonia.ReactiveUI;
 
 namespace Broccoli;
 
@@ -15,8 +15,10 @@ class Program
 
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp()
-        => AppBuilder.Configure<App>()
+    {
+        return AppBuilder.Configure<App>()
             .UsePlatformDetect()
             .LogToTrace()
             .UseReactiveUI();
+    }
 }

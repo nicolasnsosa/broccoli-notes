@@ -2,6 +2,7 @@ using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using Broccoli.ViewModels;
+using Broccoli.ViewModels.Base;
 
 namespace Broccoli;
 

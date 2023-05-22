@@ -1,0 +1,66 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:Broccoli.ViewModels.Workspaces"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="400"
+        Height="300"
+        MinWidth="300"
+        MinHeight="300"
+        x:Class="Broccoli.Windows.Workspaces.WorkspaceCrudWindow"
+        x:DataType="vm:WorkspaceCrudViewModel"
+        Title="WorkspaceCrudWindow">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ProgressBar Grid.RowSpan="5"
+                     Grid.ColumnSpan="2"
+                     x:Name="LoadingIndicator"
+                     IsIndeterminate="{Binding LoadingState}"
+                     Width="50" Height="50"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     IsVisible="{Binding LoadingState}" />
+
+        <TextBlock Text="ID:" Grid.Row="0" Grid.Column="0" Margin="5" 
+                   IsVisible="{Binding IsIdVisible}"/>
+        <TextBox x:Name="IdTextBox" IsEnabled="False" Grid.Row="0" Grid.Column="1"
+                 IsVisible="{Binding IsIdVisible}" Text="{Binding Id}" />
+
+        <TextBlock Text="Name:" Grid.Row="1" Grid.Column="0" Margin="5"
+                   IsVisible="{Binding !LoadingState}" />
+        <TextBox x:Name="NameTextBox" Grid.Row="1" Grid.Column="1" 
+                 IsVisible="{Binding !LoadingState}"  Text="{Binding Name}"/>
+
+        <TextBlock Text="Description:" Grid.Row="2" Grid.Column="0" Margin="5"
+                   IsVisible="{Binding !LoadingState}" />
+        <TextBox x:Name="DescriptionTextBox" Grid.Row="2" 
+                 Grid.Column="1" AcceptsReturn="True" TextWrapping="Wrap" 
+                 IsVisible="{Binding !LoadingState}" Text="{Binding Description}" />
+
+        <TextBlock Text="Image:" Grid.Row="3" Grid.Column="0" Margin="5"
+                   IsVisible="{Binding !LoadingState}" />
+        <Button x:Name="SelectImageButton" Content="Select Image" Grid.Row="3" Grid.Column="1"
+                HorizontalAlignment="Left"
+                IsVisible="{Binding !LoadingState}"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" Spacing="10"
+                    IsVisible="{Binding !LoadingState}">
+            <Button x:Name="CancelButton" Content="Cancel" Command="{Binding OnCancel}" />
+            <Button x:Name="SaveButton" Content="Save" Command="{Binding OnSaveAsync}" />
+        </StackPanel>
+    </Grid>
+</Window>

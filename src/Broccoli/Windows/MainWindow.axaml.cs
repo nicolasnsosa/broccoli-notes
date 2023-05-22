@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace Broccoli.Views;
+namespace Broccoli.Windows;
 
 public partial class MainWindow : Window
 {
